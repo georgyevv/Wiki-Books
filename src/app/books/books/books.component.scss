@@ -1,0 +1,30 @@
+mat-grid-tile {
+    padding: 10px;
+}
+
+mat-grid-list mat-card {
+    margin: 10px;
+}
+
+mat-grid-list mat-card-content {
+    display: flex;
+    flex-direction: row;
+}
+
+main header {
+    display: block;
+    height: 100px;
+    mat-card {
+        margin: 10px;
+        mat-card-header {
+            width: 500px;
+            display: inline-block;
+            .search {
+                width: 250px;
+            }
+        }
+        mat-button-toggle-group {
+            float: right;
+        }
+    }
+}

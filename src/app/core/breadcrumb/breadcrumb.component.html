@@ -1,0 +1,24 @@
+<!-- <main role="main" class="container" *ngIf="navs.length > 0"> -->
+<main role="main" class="container">
+    <!-- <mat-card>
+        <span *ngFor="let nav of navs; index as i">
+            <button mat-flat-button [ngClass]="{'active': i == navs.length - 1}">{{nav.title}}</button>
+            <i class="material-icons" *ngIf="i < (navs.length - 1)">
+                arrow_right
+            </i>
+        </span>
+    </mat-card> -->
+
+
+    <!-- breadcrumb -->
+    <div class="col">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" *ngFor="let item of breadcrumbList; let i = index" [class.active]="i===breadcrumbList.length-1">
+                <a [routerLink]="item.path" *ngIf="i!==breadcrumbList.length-1">
+                    {{ item.name }}
+                </a>
+                <span *ngIf="i===breadcrumbList.length-1">{{ item.name }}</span>
+            </li>
+        </ol>
+    </div>
+</main>

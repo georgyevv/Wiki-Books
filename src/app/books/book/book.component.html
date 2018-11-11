@@ -1,0 +1,67 @@
+<main role="main" class="container">
+    <mat-grid-list cols="6" rowHeight="100px">
+        <mat-grid-tile [colspan]="2" [rowspan]="4">
+            <img mat-card-image src="{{book.imgUrl}}" alt="Image of {{book.title}}">
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="4" [rowspan]="4" id="info-tile">
+            <div>
+                <h2>{{ book.title }}</h2>
+                <div>by <span>{{ book.authors }}</span></div>
+                <div>{{ book.publisher }}</div>
+                <div>Price: $<strong>{{ book.price }}</strong></div>
+            </div>
+            <br>
+            <div>
+                <button mat-icon-button color="gray">
+                    <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+                </button>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2" [rowspan]="4" id="navigation-info-tile">
+            <mat-nav-list>
+                <button type="button" mat-list-item (click)="selectedOption = 'description'">Description</button>
+                <button type="button" mat-list-item (click)="selectedOption = 'moreInfo'">More Information</button>
+            </mat-nav-list>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="4" [rowspan]="4" id="detailed-info-tile">
+            <div class="description" *ngIf="selectedOption == 'description'">
+                {{ book.description }}
+            </div>
+            <div class="moreInfo" *ngIf="selectedOption=='moreInfo'">
+                <mat-grid-list cols="8" rowHeight="2:1">
+                    <mat-grid-tile [colspan]="2" [rowspan]="4">
+                        <ul>
+                            <li>Authors</li>
+                            <li>Publisher</li>
+                            <li>ISBN</li>
+                        </ul>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="2" [rowspan]="4">
+                        <ul>
+                            <li>{{ book.authors }}</li>
+                            <li>{{ book.publisher }}</li>
+                            <li>{{ book.isbn }}</li>
+                        </ul>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="2" [rowspan]="4">
+                        <ul>
+                            <li>Pages</li>
+                            <li>Published Date</li>
+                            <li>Cover Type</li>
+                        </ul>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="2" [rowspan]="4">
+                        <ul>
+                            <li>{{ book.pages }}</li>
+                            <li>{{ book.publishDate | date:'mediumDate'}}</li>
+                            <li>{{ book.coverType }}</li>
+                        </ul>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</main>

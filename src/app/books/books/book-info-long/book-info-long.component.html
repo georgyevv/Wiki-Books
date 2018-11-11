@@ -1,0 +1,19 @@
+<mat-card class="example-card">
+    <img mat-card-image src="{{book.imgUrl}}" alt="Image of {{book.title}}">
+    <mat-card-header>
+        <mat-card-title>
+            <a [routerLink]="['/books/', book.id]" class="nav-link">{{ book.title }}</a>
+        </mat-card-title>
+        <mat-card-subtitle>{{ book.authors }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ book.publisher }}</mat-card-subtitle>
+        <mat-card-title>Price: $<strong>{{ book.price }}</strong></mat-card-title>
+    </mat-card-header>
+    <mat-card-actions class="page-footer">
+        <button mat-icon-button color="gray">
+            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+        </button>
+    </mat-card-actions>
+    <mat-card-footer>
+        {{ book.description }}
+    </mat-card-footer>
+</mat-card>

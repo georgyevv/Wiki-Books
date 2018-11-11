@@ -1,0 +1,12 @@
+<main role="main" class="container">
+    <form>
+        <div class="form-row">
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Title" [(ngModel)]="author.title" name="title">
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button id="cancel-btn" [routerLink]="['/administration/authors']">Cancel</button>
+    </form>
+</main>
